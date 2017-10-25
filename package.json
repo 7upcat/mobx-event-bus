@@ -1,0 +1,26 @@
+{
+  "name": "mobx-event-bus",
+  "version": "0.1.0",
+  "description": "Tiny library make Mobx action response events.",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7upcat/mobx-event-bus.git"
+  },
+  "keywords": [
+    "mobx",
+    "eventBus"
+  ],
+  "author": "7upcat <7upcat@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/7upcat/mobx-event-bus/issues"
+  },
+  "homepage": "https://github.com/7upcat/mobx-event-bus#readme",
+  "dependencies": {
+    "mobx": "^3.3.1"
+  }
+}
