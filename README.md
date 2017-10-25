@@ -41,3 +41,56 @@ eventBus.post('topic1', 'Tommy')
 eventBus.post('topic1', 'Martin')
 
 ```
+
+### Integration with react-router
+
+#### `RouterStore.js`
+
+```javascript
+import { createBrowserHistory } from 'history'
+import { eventBus } from 'mobx-event-bus'
+
+export default class RouterStore {
+  constructor () {
+    // 监听路由变化触发事件调用 listener
+    this.history.listen((location, action) => {
+      eventBus.post('router', { ...location})
+    })
+  }
+   
+  history = createBrowserHistory()
+}
+```
+
+#### `DomainStore.js`
+
+```javascript
+import { eventBus, subscribe } from 'mobx-event-bus'
+
+export default class DomainStore {
+  constructor () {
+    eventBus.register(this)
+  }
+  
+  @subscribe('router', {payload}=> payload.pathname === '/')
+  setup( event ) {
+    // init data
+  }
+}
+```
+
+## API Documents
+
+### eventBus
+
+Usage:
+ - register( storeInstance )
+ - post( topic, payload )
+
+### subscribe
+
+Usage:
+ - @subscribe (topic, selector) classMethod () {}
+
+
+
