@@ -52,7 +52,6 @@ import { eventBus } from 'mobx-event-bus'
 
 export default class RouterStore {
   constructor () {
-    // 监听路由变化触发事件调用 listener
     this.history.listen((location, action) => {
       eventBus.post('router', { ...location})
     })
@@ -78,19 +77,40 @@ export default class DomainStore {
   }
 }
 ```
+### Handle Keyboard Events
+
 
 ## API Documents
 
 ### eventBus
 
-Usage:
- - register( storeInstance )
- - post( topic, payload )
+Dispatch events to listeners, and provides ways for subscribers register themselves.
 
-### subscribe
+```javascript
+import { eventBus } from 'mobx-event-bus'
+```
+
+#### register( store::Object )
+
+Registers all subscribers methods on store instances to receive events.
+
+#### post( topic::String , payload::Any )
+
+Posts specified topic events to registered subscribers.
+
+```javascript
+// event data structure
+{
+  topic: 'theTopic',
+  payload: 'the data'
+}
+```
+### @subscribe
+
+Mark a store class method as an event subscriber.
 
 Usage:
- - @subscribe (topic, selector) classMethod () {}
+ - @subscribe (topic::String, selector:: Object->Boolean) classMethod () {}
 
 
 
