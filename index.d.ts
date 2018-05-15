@@ -23,14 +23,19 @@ declare interface EventBus {
      * @param {string} topic
      * @param {Object} payload
      */
-    post(topic: string, payload: object): void;
+    post(topic: string, payload: any): void;
 
 }
 
 export const eventBus : EventBus;
 
-interface Selector<Event> {
+declare interface Event {
+    topic: string,
+    payload?: any
+}
+
+interface Selector {
     (event: Event): boolean;
 }
 
-export function subscribe<Event>(topic: string, selector?: Selector<Event>)
+export function subscribe(topic: string, selector?: Selector)
