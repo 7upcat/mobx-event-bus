@@ -3,9 +3,7 @@
 /* Definitions by: Igor Savin https://github.com/kibertoad */
 
 declare interface EventBus {
-
     /**
-     *
      *  @function
      */
     metadata(): object
@@ -24,18 +22,17 @@ declare interface EventBus {
      * @param {Object} payload
      */
     post(topic: string, payload: any): void;
-
 }
 
-export const eventBus : EventBus;
+export const eventBus: EventBus;
 
-declare interface Event {
+declare interface Event<Payload> {
     topic: string,
-    payload?: any
+    payload?: Payload;
 }
 
-interface Selector {
-    (event: Event): boolean;
+interface Selector<Payload> {
+    (event: Event<Payload>): boolean;
 }
 
-export function subscribe(topic: string, selector?: Selector)
+export function subscribe<Payload>(topic: string, selector?: Selector<Payload>);
