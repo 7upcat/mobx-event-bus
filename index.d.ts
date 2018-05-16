@@ -1,5 +1,5 @@
 /* Type definitions for mobx-event-bus */
-/* Version 0.1.0 */
+/* Version 0.1.1 */
 /* Definitions by: Igor Savin https://github.com/kibertoad */
 
 declare interface EventBus {
