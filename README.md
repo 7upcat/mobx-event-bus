@@ -79,6 +79,34 @@ export default class DomainStore {
 ```
 ### Handle Keyboard Events
 
+#### React Component
+```javascript
+import eventBus from 'mobx-event-bus'
+// 
+export default ()=>{
+  const handleKeyPress = (event)=>{
+    eventBus.post('keyboard', event)
+  }
+  return <input type="text" id="one" onKeyPress={handleKeyPress} />
+}
+```
+
+#### `DomainStore.js`
+
+```javascript
+import { eventBus, subscribe } from 'mobx-event-bus'
+
+export default class DomainStore {
+  constructor () {
+    eventBus.register(this)
+  }
+  
+  @subscribe('keyboard', {payload}=> payload.key === 'Enter')
+  handleEnterPress( event ) {
+    // your business code.
+  }
+}
+```
 
 ## API Documents
 

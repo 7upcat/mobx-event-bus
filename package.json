@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Tiny library make Mobx action response events.",
   "main": "lib/index.js",
-	"types": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
@@ -23,5 +23,26 @@
   "homepage": "https://github.com/7upcat/mobx-event-bus#readme",
   "dependencies": {
     "mobx": "^3.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-beta.3",
+    "babel-jest": "^22.0.4",
+    "babel-plugin-transform-regenerator": "6.26.0",
+    "babel-preset-es2015": "7.0.0-beta.3",
+    "babel-preset-stage-1": "7.0.0-beta.3",
+    "jest": "^22.0.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "testRegex": "test/.*.test.js$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/\\./"
+    ]
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
