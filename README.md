@@ -1,4 +1,4 @@
-# mobx-event-bus
+# mobx-event-bus &middot; [![Build Status](https://travis-ci.org/7upcat/mobx-event-bus.svg?branch=master)](https://travis-ci.org/7upcat/mobx-event-bus)
 
 Tiny library allows publish-subscribe-style communication between components without requiring the components to explicitly register with one another.
 
